@@ -9,10 +9,8 @@ const pusher = new Pusher({
     cluster: "ap2",
     useTLS: true
   });
-  
-  app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
-    console.log("Server is running.");
-  });
+
+ 
 const app = express();
 
 app.use(cors({
@@ -32,3 +30,6 @@ app.post('/api/messages', async (req, res) => {
 
 console.log('listening to port 8000');
 
+app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
+    console.log("Server is running.");
+  });
