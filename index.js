@@ -39,7 +39,12 @@ app.post('/api/messages', async (req, res) => {
     });
 
     res.json([]);
-})
+    console.log(req.body.username);
+    console.log(req.body.message);
+    
+}
+
+)
 
 console.log('listening to port 8000');
 
