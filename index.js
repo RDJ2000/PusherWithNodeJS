@@ -33,7 +33,7 @@ app.use(express.urlencoded({
     extended: true
   }))
 app.post('/api/messages', async (req, res) => {
-    await pusher.trigger("chat", "message", {
+    await pusher.trigger(req.body.roomName, "message", {
         username: req.body.username,
         message: req.body.message
     });
