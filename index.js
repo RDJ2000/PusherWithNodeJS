@@ -32,8 +32,8 @@ app.use(express.json())
 app.use(express.urlencoded({
     extended: true
   }))
-app.post('/api/messages', async (req, res) => {
-    await pusher.trigger(req.body.roomName, "message", {
+app.post('/api/messages/Web', async (req, res) => {
+    await pusher.trigger('Web', "message", {
         username: req.body.username,
         message: req.body.message
     });
@@ -45,7 +45,32 @@ app.post('/api/messages', async (req, res) => {
 }
 
 )
+app.post('/api/messages/Android', async (req, res) => {
+  await pusher.trigger('android', "message", {
+      username: req.body.username,
+      message: req.body.message
+  });
 
+  res.json([]);
+  console.log(req.body.username);
+  console.log(req.body.message);
+  
+}
+
+)
+app.post('/api/messages/Game', async (req, res) => {
+  await pusher.trigger('game', "message", {
+      username: req.body.username,
+      message: req.body.message
+  });
+
+  res.json([]);
+  console.log(req.body.username);
+  console.log(req.body.message);
+  
+}
+
+)
 console.log('listening to port 8000');
 
 app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
