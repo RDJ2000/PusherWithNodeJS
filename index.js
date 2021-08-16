@@ -33,7 +33,7 @@ app.use(express.urlencoded({
     extended: true
   }))
 app.post('/api/messages/Web', async (req, res) => {
-    await pusher.trigger('Web', "message", {
+    await pusher.trigger('web', "message", {
         username: req.body.username,
         message: req.body.message
     });
